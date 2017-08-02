@@ -9,11 +9,37 @@
 
 <h:head>
 </h:head>
+
 <h:body>
 	<h1>Hello World PrimeFaces</h1>
+	<h:form id="form1">
+	<h:outputStylesheet library="css" name="style.css"  />
 
-	<h:form>
-	<p:outputLabel value="#{beanA.value}" />
+	<div class="red">This is red color</div>
+
+	<p:outputLabel id="output" value="#{beanA.value}" />
+	
+	<p:outputLabel value="DropDown:" for="dd" />
+    <p:autoComplete id="dd" dropdown="true" value="#{carService.brand}" completeMethod="#{carService.completeBrands}" />
+ 
+	
+	<p:dataTable var="car" value="#{dtBasicView.cars}">
+    <p:column headerText="Id">
+        <h:outputText value="#{car.id}" />
+    </p:column>
+ 
+    <p:column headerText="Year">
+        <h:outputText value="#{car.year}" />
+    </p:column>
+ 
+    <p:column headerText="Brand">
+        <h:outputText value="#{car.brand}" />
+    </p:column>
+ 
+    <p:column headerText="Color">
+        <h:outputText value="#{car.color}" />
+    </p:column>
+</p:dataTable>
 	</h:form>
 
 </h:body>
